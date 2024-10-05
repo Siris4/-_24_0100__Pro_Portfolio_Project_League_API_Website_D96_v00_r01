@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League Live Game Monitor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Live Game Monitor</h1>
+
+        <form method="POST">
+            <input type="text" name="summoner_name" placeholder="Enter Summoner Name" required>
+            <button type="submit">Check Live Game</button>
+        </form>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if participants %}
+        <h2>Live Game Details</h2>
+        {% if is_aram %}
+        <p>This is an ARAM match!</p>
+        {% else %}
+        <p>This is a different game mode.</p>
+        {% endif %}
+
+        <ul>
+        {% for participant in participants %}
+            <li>{{ participant['summonerName'] }} - Champion ID: {{ participant['championId'] }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>
